@@ -22,6 +22,10 @@ while jogando:
 
     if quantidade_de_fichas > 0:
         pergunta_ganhador = input('Quem você acha que ganha?[j,b,e]: ')
+        while pergunta_ganhador != 'j' and pergunta_ganhador != 'b' and pergunta_ganhador != 'e':
+                print('Essa não é uma aposta válida! Por favor, digite j, b ou e para prosseguir o jogo! :)')
+                pergunta_ganhador = input('Quem você acha que ganha?[j,b,e]: ')
+
         #carta um do jogador
         sorteado1 = random.randint(0,51)
         if baralho[sorteado1] == 'A':
@@ -168,17 +172,22 @@ jogando = True
 while jogando:
     #com um baralho
     if pergunta_quantidade_baralho == 1:
+        baralho = pergunta_quantidade_baralho*['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
         if quantidade_de_fichas <= 0:
             print('Você não tem mais fichas para apostar!:C')
             break
 
         aposta = int(input('Qual a quantidade de fichas que você aposta?: '))
-        
+
         if aposta == 0:
             print('Volte sempre! :D')
             break
         if quantidade_de_fichas > 0:
             pergunta_ganhador = input('Quem você acha que ganha?[j,b,e]: ')
+            while pergunta_ganhador != 'j' and pergunta_ganhador != 'b' and pergunta_ganhador != 'e':
+                print('Essa não é uma aposta válida! Por favor, digite j, b ou e para prosseguir o jogo! :)')
+                pergunta_ganhador = input('Quem você acha que ganha?[j,b,e]: ')
+
             #carta um do jogador
             sorteado1 = random.randint(0, 51)
             if baralho[sorteado1] == 'A':
@@ -321,6 +330,7 @@ while jogando:
     
     #com 6 baralhos.
     if pergunta_quantidade_baralho == 6:
+        baralho = pergunta_quantidade_baralho*['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
         if quantidade_de_fichas <= 0:
             print('Você não tem mais fichas para apostar!:C')
             break
@@ -330,8 +340,13 @@ while jogando:
         if aposta == 0:
             print('Volte sempre! :D')
             break
+
         if quantidade_de_fichas > 0:
             pergunta_ganhador = input('Quem você acha que ganha?[j,b,e]: ')
+            while pergunta_ganhador != 'j' and pergunta_ganhador != 'b' and pergunta_ganhador != 'e':
+                print('Essa não é uma aposta válida! Por favor, digite j, b ou e para prosseguir o jogo! :)')
+                pergunta_ganhador = input('Quem você acha que ganha?[j,b,e]: ')
+
             #carta um do jogador
             sorteado1 = random.randint(0, 311)
             if baralho[sorteado1] == 'A':
@@ -474,6 +489,7 @@ while jogando:
     
     #com 8 baralhos.
     if pergunta_quantidade_baralho == 8:
+        baralho = pergunta_quantidade_baralho*['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
         if quantidade_de_fichas <= 0:
             print('Você não tem mais fichas para apostar!:C')
             break
@@ -485,6 +501,10 @@ while jogando:
             break
         if quantidade_de_fichas > 0:
             pergunta_ganhador = input('Quem você acha que ganha?[j,b,e]: ')
+            while pergunta_ganhador != 'j' and pergunta_ganhador != 'b' and pergunta_ganhador != 'e':
+                print('Essa não é uma aposta válida! Por favor, digite j, b ou e para prosseguir o jogo! :)')
+                pergunta_ganhador = input('Quem você acha que ganha?[j,b,e]: ')
+
             #carta um do jogador
             sorteado1 = random.randint(0, 415)
             if baralho[sorteado1] == 'A':
@@ -607,8 +627,8 @@ while jogando:
                     print('Você tem {0} fichas!'.format(quantidade_de_fichas))
             if soma_jogador < soma_banco:
                 if pergunta_ganhador == 'b':
-                    quantidade_de_fichas = quantidade_de_fichas + int(quantidade_de_fichas*0.95) - int(0.0106*(int(quantidade_de_fichas*0.95)))
-                    comissão += int(0.0106*(int(quantidade_de_fichas*0.95)))
+                    quantidade_de_fichas = quantidade_de_fichas + int(aposta*0.95) - int(0.0106*(int(aposta*0.95)))
+                    comissão += int(0.0106*(int(aposta*0.95)))
                     print('A comissão dada a casa é de {0} fichas até agora!'.format(comissão))
                     print('Você tem {0} fichas!'.format(quantidade_de_fichas))
                 else:
@@ -616,13 +636,14 @@ while jogando:
                     print('Você tem {0} fichas!'.format(quantidade_de_fichas))
             if soma_jogador == soma_banco:
                 if pergunta_ganhador == 'e':
-                    quantidade_de_fichas = quantidade_de_fichas + quantidade_de_fichas*8 - int(0.1436*quantidade_de_fichas*8)
-                    comissão += int(0.1436*quantidade_de_fichas*8)
+                    quantidade_de_fichas = quantidade_de_fichas + aposta*8 - int(0.1436*aposta*8)
+                    comissão += int(0.1436*aposta*8)
                     print('A comissão dada a casa é de {0} fichas até agora!'.format(comissão))
                     print('Você tem {0} fichas!'.format(quantidade_de_fichas))
                 else:
                     quantidade_de_fichas -= aposta
                     print('Você tem {0} fichas!'.format(quantidade_de_fichas))
-    else:
+
+    if pergunta_quantidade_baralho != 1 and pergunta_quantidade_baralho != 6 and pergunta_quantidade_baralho != 8:
         print('Não é possível jogar com essa quantidade de baralhos! Por favor, digite 1, 6 ou 8!')
         pergunta_quantidade_baralho = int(input('Com quantos baralhos você deseja jogar?[1, 6 ou 8?]: '))
