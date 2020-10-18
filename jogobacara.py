@@ -538,7 +538,7 @@ while jogando:
             
             if soma_jogador >= 10:
                 soma_jogador = soma_jogador % 10 
-                
+            print('A soma das cartas do jogador é {0} e do banco é {1}. Se a soma de uma for menor do que 5 e a outra menor que 8, o que tive menor soma recebe mais uma carta!'.format(soma_jogador, soma_banco))  
             #condições
             if soma_jogador <= 5 and soma_banco < 8:
                 sorteado5 = random.randint(0,415)
@@ -576,8 +576,8 @@ while jogando:
             if soma_jogador >= 10:
                 soma_jogador = soma_jogador % 10  
 
-            print('A soma das cartas do jogador deu {0}'.format(soma_jogador))
-            print('A soma das cartas do banco deu {0}'.format(soma_banco))
+            print('A soma das cartas final do jogador deu {0}'.format(soma_jogador))
+            print('A soma das cartas final do banco deu {0}'.format(soma_banco))
             
             if soma_jogador > soma_banco:
                 if pergunta_ganhador == 'j':
