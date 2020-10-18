@@ -623,3 +623,6 @@ while jogando:
                 else:
                     quantidade_de_fichas -= aposta
                     print('Você tem {0} fichas!'.format(quantidade_de_fichas))
+    else:
+        print('Não é possível jogar com essa quantidade de baralhos! Por favor, digite 1, 6 ou 8!')
+        pergunta_quantidade_baralho = int(input('Com quantos baralhos você deseja jogar?[1, 6 ou 8?]: '))
