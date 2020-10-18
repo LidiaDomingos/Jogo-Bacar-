@@ -3,21 +3,23 @@
 # Data: 18/10/2020
 
 '''
-#O jogo com um baralho de 52 cartas
+#O jogo com um baralho de 52 cartas e somente um jogador
 import random
 baralho = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
 quantidade_de_fichas = 100
+print('Olá, você começa o jogo com 100 fichas! Para sua primeira aposta, digite um valor entre 0 e 100!')
 jogando = True
 while jogando:
     
     if quantidade_de_fichas <= 0:
         print('Você não tem mais fichas para apostar!:C')
+        print('Obrigada por jogar! Volte sempre! :D')
         break
        
     aposta = int(input('Qual a quantidade de fichas que você aposta?: '))
     
     if aposta == 0:
-        print('Volte sempre! :D')
+        print('Obrigada por jogar! Volte sempre! :D')
         break
 
     if quantidade_de_fichas > 0:
@@ -167,6 +169,7 @@ import random
 pergunta_quantidade_baralho = int(input('Com quantos baralhos você deseja jogar?[1, 6 ou 8?]: '))
 baralho = pergunta_quantidade_baralho*['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
 quantidade_de_fichas = 100
+print('Olá, você começa o jogo com 100 fichas! Para sua primeira aposta, digite um valor entre 0 e 100!')
 comissão = 0 
 jogando = True
 while jogando:
@@ -175,12 +178,14 @@ while jogando:
         baralho = pergunta_quantidade_baralho*['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
         if quantidade_de_fichas <= 0:
             print('Você não tem mais fichas para apostar!:C')
+            print('Obrigada por jogar! Volte sempre! :D')
             break
 
         aposta = int(input('Qual a quantidade de fichas que você aposta?: '))
 
         if aposta == 0:
             print('Volte sempre! :D')
+            print('Obrigada por jogar! Volte sempre! :D')
             break
         if quantidade_de_fichas > 0:
             pergunta_ganhador = input('Quem você acha que ganha?[j,b,e]: ')
@@ -333,12 +338,13 @@ while jogando:
         baralho = pergunta_quantidade_baralho*['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
         if quantidade_de_fichas <= 0:
             print('Você não tem mais fichas para apostar!:C')
+            print('Obrigada por jogar! Volte sempre! :D')
             break
 
         aposta = int(input('Qual a quantidade de fichas que você aposta?: '))
         
         if aposta == 0:
-            print('Volte sempre! :D')
+            print('Obrigada por jogar! Volte sempre! :D')
             break
 
         if quantidade_de_fichas > 0:
@@ -492,12 +498,13 @@ while jogando:
         baralho = pergunta_quantidade_baralho*['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
         if quantidade_de_fichas <= 0:
             print('Você não tem mais fichas para apostar!:C')
+            print('Obrigada por jogar! Volte sempre! :D')
             break
 
         aposta = int(input('Qual a quantidade de fichas que você aposta?: '))
         
         if aposta == 0:
-            print('Volte sempre! :D')
+            print('Obrigada por jogar! Volte sempre! :D')
             break
         if quantidade_de_fichas > 0:
             pergunta_ganhador = input('Quem você acha que ganha?[j,b,e]: ')
@@ -647,3 +654,4 @@ while jogando:
     if pergunta_quantidade_baralho != 1 and pergunta_quantidade_baralho != 6 and pergunta_quantidade_baralho != 8:
         print('Não é possível jogar com essa quantidade de baralhos! Por favor, digite 1, 6 ou 8!')
         pergunta_quantidade_baralho = int(input('Com quantos baralhos você deseja jogar?[1, 6 ou 8?]: '))
+
