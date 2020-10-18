@@ -3,7 +3,7 @@
 # Data: 18/10/2020
 
 '''
-#O jogo com um baralho de 52 cartas e somente um jogador
+#O jogo com um baralho de 52 cartas e somente um jogador, sem regras avançadas!
 import random
 baralho = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
 quantidade_de_fichas = 100
