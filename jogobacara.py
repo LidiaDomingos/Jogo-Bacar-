@@ -94,7 +94,7 @@ while jogando:
             soma_jogador = soma_jogador % 10 
 
         print('A soma das cartas do jogador é {0} e do banco é {1}. Se a soma de uma for menor do que 5 e a outra menor que 8, o que tive menor soma recebe mais uma carta!'.format(soma_jogador, soma_banco))
-            
+
         #condições
 
         if soma_jogador <= 5 and soma_banco < 8:
@@ -163,6 +163,7 @@ import random
 pergunta_quantidade_baralho = int(input('Com quantos baralhos você deseja jogar?[1, 6 ou 8?]: '))
 baralho = pergunta_quantidade_baralho*['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
 quantidade_de_fichas = 100
+comissão = 0 
 jogando = True
 while jogando:
     #com um baralho
@@ -293,6 +294,8 @@ while jogando:
             if soma_jogador > soma_banco:
                 if pergunta_ganhador == 'j':
                     quantidade_de_fichas = quantidade_de_fichas + aposta - int(0.0129*aposta)
+                    comissão += int(0.0129*aposta)
+                    print('A comissão dada a casa é de {0} fichas até agora!'.format(comissão))
                     print('Você tem {0} fichas!'.format(quantidade_de_fichas))
                 else:
                     quantidade_de_fichas -= aposta
@@ -300,6 +303,8 @@ while jogando:
             if soma_jogador < soma_banco:
                 if pergunta_ganhador == 'b':
                     quantidade_de_fichas = quantidade_de_fichas + int(quantidade_de_fichas*0.95) - int(0.0101*aposta)
+                    comissão += int(0.0101*aposta)
+                    print('A comissão dada a casa é de {0} fichas até agora!'.format(comissão))
                     print('Você tem {0} fichas!'.format(quantidade_de_fichas))
                 else:
                     quantidade_de_fichas -= aposta
@@ -307,6 +312,8 @@ while jogando:
             if soma_jogador == soma_banco:
                 if pergunta_ganhador == 'e':
                     quantidade_de_fichas = quantidade_de_fichas + quantidade_de_fichas*8 - int(0.1575*aposta)
+                    comissão += int(0.1575*aposta)
+                    print('A comissão dada a casa é de {0} fichas até agora!'.format(comissão))
                     print('Você tem {0} fichas!'.format(quantidade_de_fichas))
                 else:
                     quantidade_de_fichas -= aposta
@@ -440,6 +447,8 @@ while jogando:
             if soma_jogador > soma_banco:
                 if pergunta_ganhador == 'j':
                     quantidade_de_fichas = quantidade_de_fichas + aposta - int(0.0124*aposta)
+                    comissão += int(0.0124*aposta)
+                    print('A comissão dada a casa é de {0} fichas até agora!'.format(comissão))
                     print('Você tem {0} fichas!'.format(quantidade_de_fichas))
                 else:
                     quantidade_de_fichas -= aposta
@@ -447,6 +456,8 @@ while jogando:
             if soma_jogador < soma_banco:
                 if pergunta_ganhador == 'b':
                     quantidade_de_fichas = quantidade_de_fichas + int(quantidade_de_fichas*0.95) - int(0.0106*aposta)
+                    comissão += int(0.0106*aposta)
+                    print('A comissão dada a casa é de {0} fichas até agora!'.format(comissão))
                     print('Você tem {0} fichas!'.format(quantidade_de_fichas))
                 else:
                     quantidade_de_fichas -= aposta
@@ -454,6 +465,8 @@ while jogando:
             if soma_jogador == soma_banco:
                 if pergunta_ganhador == 'e':
                     quantidade_de_fichas = quantidade_de_fichas + quantidade_de_fichas*8 - int(0.1444*aposta)
+                    comissão += int(0.1444*aposta)
+                    print('A comissão dada a casa é de {0} fichas até agora!'.format(comissão))
                     print('Você tem {0} fichas!'.format(quantidade_de_fichas))
                 else:
                     quantidade_de_fichas -= aposta
@@ -586,6 +599,8 @@ while jogando:
             if soma_jogador > soma_banco:
                 if pergunta_ganhador == 'j':
                     quantidade_de_fichas = quantidade_de_fichas + aposta - int(0.0124*aposta)
+                    comissão += int(0.0124*aposta)
+                    print('A comissão dada a casa é de {0} fichas até agora!'.format(comissão))
                     print('Você tem {0} fichas!'.format(quantidade_de_fichas))
                 else:
                     quantidade_de_fichas -= aposta
@@ -593,6 +608,8 @@ while jogando:
             if soma_jogador < soma_banco:
                 if pergunta_ganhador == 'b':
                     quantidade_de_fichas = quantidade_de_fichas + int(quantidade_de_fichas*0.95) - int(0.0106*aposta)
+                    comissão += int(0.0106*aposta)
+                    print('A comissão dada a casa é de {0} fichas até agora!'.format(comissão))
                     print('Você tem {0} fichas!'.format(quantidade_de_fichas))
                 else:
                     quantidade_de_fichas -= aposta
@@ -600,6 +617,8 @@ while jogando:
             if soma_jogador == soma_banco:
                 if pergunta_ganhador == 'e':
                     quantidade_de_fichas = quantidade_de_fichas + quantidade_de_fichas*8 - int(0.1436*aposta)
+                    comissão += int(0.1436*aposta)
+                    print('A comissão dada a casa é de {0} fichas até agora!'.format(comissão))
                     print('Você tem {0} fichas!'.format(quantidade_de_fichas))
                 else:
                     quantidade_de_fichas -= aposta
