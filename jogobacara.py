@@ -166,10 +166,11 @@ while jogando:
 '''
 #O jogo com 1, 6 ou 8 baralhos.
 import random
-pergunta_quantidade_baralho = int(input('Com quantos baralhos você deseja jogar?[1, 6 ou 8?]: '))
-baralho = pergunta_quantidade_baralho*['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
+
 quantidade_de_fichas = 100
 print('Olá, você começa o jogo com 100 fichas! Para sua primeira aposta, digite um valor entre 0 e 100!')
+pergunta_quantidade_baralho = int(input('Com quantos baralhos você deseja jogar?[1, 6 ou 8?]: '))
+baralho = pergunta_quantidade_baralho*['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
 comissão = 0 
 jogando = True
 while jogando:
@@ -182,6 +183,9 @@ while jogando:
             break
 
         aposta = int(input('Qual a quantidade de fichas que você aposta?: '))
+        while aposta > quantidade_de_fichas or aposta < 0:
+            print('Este valor não é aceitável! Por favor, aposte de 0 até a quantidade de fichas que você possui!')
+            aposta = int(input('Qual a quantidade de fichas que você aposta?: '))
 
         if aposta == 0:
             print('Volte sempre! :D')
@@ -342,6 +346,9 @@ while jogando:
             break
 
         aposta = int(input('Qual a quantidade de fichas que você aposta?: '))
+        while aposta > quantidade_de_fichas or aposta < 0:
+            print('Este valor não é aceitável! Por favor, aposte de 0 até a quantidade de fichas que você possui!')
+            aposta = int(input('Qual a quantidade de fichas que você aposta?: '))
         
         if aposta == 0:
             print('Obrigada por jogar! Volte sempre! :D')
@@ -502,7 +509,10 @@ while jogando:
             break
 
         aposta = int(input('Qual a quantidade de fichas que você aposta?: '))
-        
+        while aposta > quantidade_de_fichas or aposta < 0:
+            print('Este valor não é aceitável! Por favor, aposte de 0 até a quantidade de fichas que você possui!')
+            aposta = int(input('Qual a quantidade de fichas que você aposta?: '))
+
         if aposta == 0:
             print('Obrigada por jogar! Volte sempre! :D')
             break
