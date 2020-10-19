@@ -2,7 +2,7 @@
 # Equipe: Lídia Alves Chagas Domingos
 # Engenharia da Computação - Turma B - 1° semestre
 # Data: 18/10/2020
-
+# Este trabalho foi dividido em duas partes: da linha 7 até a linha 182 é o jogo para um jogador e um banco, com um baralho de 52 cartas; da linha 182 até a linha 727 é o jogo para um jogador e um banco, com algumas regras avançadas e tendo 3 opções de escolha para o tamanho do baralho.
 '''
 #O jogo com um baralho de 52 cartas e somente um jogador, sem regras avançadas!
 import random
@@ -36,7 +36,8 @@ while jogando:
                 print('Essa não é uma aposta válida! Por favor, digite j, b ou e para prosseguir o jogo! :)')
                 pergunta_ganhador = input('Quem você acha que ganha?[j,b,e]: ')
 
-        #É definido os valores de cada carta do baralho!
+        #É definido os valores de cada carta do baralho e a soma!
+
         #carta um do jogador
         sorteado1 = random.randint(0,51)
         if baralho[sorteado1] == 'A':
@@ -102,6 +103,8 @@ while jogando:
         #soma das cartas dos banco
         soma_banco = carta_banco_1 + carta_banco_2
 
+        #Regras da soma.
+
         if soma_banco >= 10:
             soma_banco = soma_banco % 10    
         
@@ -110,7 +113,7 @@ while jogando:
 
         print('A soma das cartas do jogador é {0} e do banco é {1}. Se a soma de uma for menor do que 5 e a outra menor que 8, o que tive menor soma recebe mais uma carta!'.format(soma_jogador, soma_banco))
 
-        #condições
+        #condições para receber a terceira carta do jogador e do banco.
 
         if soma_jogador <= 5 and soma_banco < 8:
             sorteado5 = random.randint(0,51)
@@ -142,6 +145,8 @@ while jogando:
                 carta_banco_3 = 0
             soma_banco = carta_banco_1 + carta_banco_2 + carta_banco_3
 
+        #Verifica regras da soma novamente.
+
         if soma_banco >= 10:
             soma_banco = soma_banco % 10    
         
@@ -151,6 +156,8 @@ while jogando:
         print('A soma das cartas do jogador deu {0}'.format(soma_jogador))
         print('A soma das cartas do banco deu {0}'.format(soma_banco))
         
+        #condições para pagamento de apostas!
+
         if soma_jogador > soma_banco:
             if pergunta_ganhador == 'j':
                 quantidade_de_fichas += aposta
@@ -175,6 +182,7 @@ while jogando:
 '''
 '''
 #O jogo com 1, 6 ou 8 baralhos e algumas regras avançadas! Não consegui fazer multiplayer e a regra da terceira carta pro banco seguindo a tabela.
+
 import random
 
 quantidade_de_fichas = 100
@@ -183,14 +191,21 @@ pergunta_quantidade_baralho = int(input('Com quantos baralhos você deseja jogar
 baralho = pergunta_quantidade_baralho*['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
 comissão = 0 
 jogando = True
+
 while jogando:
-    #com um baralho
+    #Com um baralho.
+    #É feito um 'if' para cada quantidade de baralhos: um, seis e oito.
     if pergunta_quantidade_baralho == 1:
         baralho = pergunta_quantidade_baralho*['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
+        
+        #Verifica se tem fichas o suficiente.
+
         if quantidade_de_fichas <= 0:
             print('Você não tem mais fichas para apostar!:C')
             print('Obrigada por jogar! Volte sempre! :D')
             break
+        
+        #Verifica se a aposta é válida.
 
         aposta = int(input('Qual a quantidade de fichas que você aposta?: '))
         while aposta > quantidade_de_fichas or aposta < 0:
@@ -201,11 +216,15 @@ while jogando:
             print('Volte sempre! :D')
             print('Obrigada por jogar! Volte sempre! :D')
             break
+
+        #Se tem fichas o suficiente e a aposta está de acordo, é iniciada a partida.
         if quantidade_de_fichas > 0:
             pergunta_ganhador = input('Quem você acha que ganha?[j,b,e]: ')
             while pergunta_ganhador != 'j' and pergunta_ganhador != 'b' and pergunta_ganhador != 'e':
                 print('Essa não é uma aposta válida! Por favor, digite j, b ou e para prosseguir o jogo! :)')
                 pergunta_ganhador = input('Quem você acha que ganha?[j,b,e]: ')
+
+            #Verificação dos valores das cartas e a soma.
 
             #carta um do jogador
             sorteado1 = random.randint(0, 51)
@@ -269,9 +288,10 @@ while jogando:
             else: 
                 carta_banco_2 = baralho[sorteado4]
 
-            #soma das cartas dos banco
+            #soma das cartas do banco
             soma_banco = carta_banco_1 + carta_banco_2
 
+            #regra da soma.
             if soma_banco >= 10:
                 soma_banco = soma_banco % 10    
             
@@ -279,7 +299,8 @@ while jogando:
                 soma_jogador = soma_jogador % 10 
 
             print('A soma das cartas do jogador é {0} e do banco é {1}. Se a soma de uma for menor do que 5 e a outra menor que 8, o que tive menor soma recebe mais uma carta!'.format(soma_jogador, soma_banco))   
-            #condições
+            
+            #condições para receber a terceira carta.
             if soma_jogador <= 5 and soma_banco < 8:
                 sorteado5 = random.randint(0,51)
                 carta_jogador_3 = baralho[sorteado5]
@@ -310,6 +331,7 @@ while jogando:
                     carta_banco_3 = 0
                 soma_banco = carta_banco_1 + carta_banco_2 + carta_banco_3
 
+            #Verifica novamente a soma.
             if soma_banco >= 10:
                 soma_banco = soma_banco % 10    
             
@@ -319,6 +341,7 @@ while jogando:
             print('A soma das cartas do jogador deu {0}'.format(soma_jogador))
             print('A soma das cartas do banco deu {0}'.format(soma_banco))
             
+            #Condições para pagamento de apostas e comissão.
             if soma_jogador > soma_banco:
                 if pergunta_ganhador == 'j':
                     quantidade_de_fichas = quantidade_de_fichas + aposta - int(0.0129*aposta)
@@ -350,6 +373,9 @@ while jogando:
     #com 6 baralhos.
     if pergunta_quantidade_baralho == 6:
         baralho = pergunta_quantidade_baralho*['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
+        
+        #Verificação de fichas e aposta.
+        
         if quantidade_de_fichas <= 0:
             print('Você não tem mais fichas para apostar!:C')
             print('Obrigada por jogar! Volte sempre! :D')
@@ -369,6 +395,8 @@ while jogando:
             while pergunta_ganhador != 'j' and pergunta_ganhador != 'b' and pergunta_ganhador != 'e':
                 print('Essa não é uma aposta válida! Por favor, digite j, b ou e para prosseguir o jogo! :)')
                 pergunta_ganhador = input('Quem você acha que ganha?[j,b,e]: ')
+
+            #Valores das cartas e da soma.
 
             #carta um do jogador
             sorteado1 = random.randint(0, 311)
@@ -435,6 +463,8 @@ while jogando:
             #soma das cartas dos banco
             soma_banco = carta_banco_1 + carta_banco_2
 
+            #Regras da soma.
+
             if soma_banco >= 10:
                 soma_banco = soma_banco % 10    
             
@@ -442,7 +472,9 @@ while jogando:
                 soma_jogador = soma_jogador % 10 
                 
             print('A soma das cartas do jogador é {0} e do banco é {1}. Se a soma de uma for menor do que 5 e a outra menor que 8, o que tive menor soma recebe mais uma carta!'.format(soma_jogador, soma_banco))
-            #condições
+            
+            #condições para receber a terceira carta.
+            
             if soma_jogador <= 5 and soma_banco < 8:
                 sorteado5 = random.randint(0,311)
                 carta_jogador_3 = baralho[sorteado5]
@@ -473,6 +505,8 @@ while jogando:
                     carta_banco_3 = 0
                 soma_banco = carta_banco_1 + carta_banco_2 + carta_banco_3
 
+            #verifica condições da soma
+
             if soma_banco >= 10:
                 soma_banco = soma_banco % 10    
             
@@ -482,6 +516,8 @@ while jogando:
             print('A soma das cartas do jogador deu {0}'.format(soma_jogador))
             print('A soma das cartas do banco deu {0}'.format(soma_banco))
             
+            #condições para pagamento de apostas.
+
             if soma_jogador > soma_banco:
                 if pergunta_ganhador == 'j':
                     quantidade_de_fichas = quantidade_de_fichas + aposta - int(0.0124*aposta)
@@ -513,6 +549,9 @@ while jogando:
     #com 8 baralhos.
     if pergunta_quantidade_baralho == 8:
         baralho = pergunta_quantidade_baralho*['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K','A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
+        
+        #verifica quantidade de fichas e aposta.
+        
         if quantidade_de_fichas <= 0:
             print('Você não tem mais fichas para apostar!:C')
             print('Obrigada por jogar! Volte sempre! :D')
@@ -532,6 +571,8 @@ while jogando:
                 print('Essa não é uma aposta válida! Por favor, digite j, b ou e para prosseguir o jogo! :)')
                 pergunta_ganhador = input('Quem você acha que ganha?[j,b,e]: ')
 
+            #Ajeita os valores das cartas e das somas.
+
             #carta um do jogador
             sorteado1 = random.randint(0, 415)
             if baralho[sorteado1] == 'A':
@@ -546,6 +587,7 @@ while jogando:
                 carta_jogador_1 = 0
             else: 
                 carta_jogador_1 = baralho[sorteado1]
+            
             #carta dois do jogador
             sorteado2 = random.randint(0,415)
             if baralho[sorteado2] == 'A':
@@ -597,13 +639,18 @@ while jogando:
             #soma das cartas dos banco
             soma_banco = carta_banco_1 + carta_banco_2
 
+            #regras da soma
+
             if soma_banco >= 10:
                 soma_banco = soma_banco % 10    
             
             if soma_jogador >= 10:
                 soma_jogador = soma_jogador % 10 
+            
             print('A soma das cartas do jogador é {0} e do banco é {1}. Se a soma de uma for menor do que 5 e a outra menor que 8, o que tive menor soma recebe mais uma carta!'.format(soma_jogador, soma_banco))  
-            #condições
+            
+            #condições para receber a terceira carta.
+
             if soma_jogador <= 5 and soma_banco < 8:
                 sorteado5 = random.randint(0,415)
                 carta_jogador_3 = baralho[sorteado5]
@@ -634,6 +681,7 @@ while jogando:
                     carta_banco_3 = 0
                 soma_banco = carta_banco_1 + carta_banco_2 + carta_banco_3
 
+            #verifica regra da soma.
             if soma_banco >= 10:
                 soma_banco = soma_banco % 10    
             
@@ -643,6 +691,7 @@ while jogando:
             print('A soma das cartas final do jogador deu {0}'.format(soma_jogador))
             print('A soma das cartas final do banco deu {0}'.format(soma_banco))
             
+            #condições para pagamento de apostas.
             if soma_jogador > soma_banco:
                 if pergunta_ganhador == 'j':
                     quantidade_de_fichas = quantidade_de_fichas + aposta - int(0.0124*aposta)
@@ -670,6 +719,8 @@ while jogando:
                 else:
                     quantidade_de_fichas -= aposta
                     print('Você tem {0} fichas!'.format(quantidade_de_fichas))
+
+    #verifica se a resposta da pergunta baralho foi de acordo com o que foi pedido.
 
     if pergunta_quantidade_baralho != 1 and pergunta_quantidade_baralho != 6 and pergunta_quantidade_baralho != 8:
         print('Não é possível jogar com essa quantidade de baralhos! Por favor, digite 1, 6 ou 8!')
