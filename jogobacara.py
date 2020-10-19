@@ -1,5 +1,6 @@
 # EP - Design de Software
 # Equipe: Lídia Alves Chagas Domingos
+# Engenharia da Computação - Turma B - 1° semestre
 # Data: 18/10/2020
 
 '''
@@ -11,23 +12,31 @@ print('Olá, você começa o jogo com 100 fichas! Para sua primeira aposta, digi
 jogando = True
 while jogando:
     
+    #Se não tiver mais fichas, o jogo acaba.
     if quantidade_de_fichas <= 0:
         print('Você não tem mais fichas para apostar!:C')
         print('Obrigada por jogar! Volte sempre! :D')
         break
-       
+
+    #Se a aposta for negativa, ou maior do que o que ele tem, o jogo não aceita.   
     aposta = int(input('Qual a quantidade de fichas que você aposta?: '))
+    while aposta > quantidade_de_fichas or aposta < 0:
+            print('Este valor não é aceitável! Por favor, aposte de 0 até a quantidade de fichas que você possui!')
+            aposta = int(input('Qual a quantidade de fichas que você aposta?: '))
     
+    #Se aposta igual a 0, o jogo termina.
     if aposta == 0:
         print('Obrigada por jogar! Volte sempre! :D')
         break
-
+    
+    #Possuindo ainda fichas, é possível continuar o jogo.
     if quantidade_de_fichas > 0:
         pergunta_ganhador = input('Quem você acha que ganha?[j,b,e]: ')
         while pergunta_ganhador != 'j' and pergunta_ganhador != 'b' and pergunta_ganhador != 'e':
                 print('Essa não é uma aposta válida! Por favor, digite j, b ou e para prosseguir o jogo! :)')
                 pergunta_ganhador = input('Quem você acha que ganha?[j,b,e]: ')
 
+        #É definido os valores de cada carta do baralho!
         #carta um do jogador
         sorteado1 = random.randint(0,51)
         if baralho[sorteado1] == 'A':
@@ -164,7 +173,8 @@ while jogando:
                 quantidade_de_fichas -= aposta
                 print('Você tem {0} fichas!'.format(quantidade_de_fichas))
 '''
-#O jogo com 1, 6 ou 8 baralhos.
+'''
+#O jogo com 1, 6 ou 8 baralhos e algumas regras avançadas! Não consegui fazer multiplayer e a regra da terceira carta pro banco seguindo a tabela.
 import random
 
 quantidade_de_fichas = 100
@@ -664,4 +674,4 @@ while jogando:
     if pergunta_quantidade_baralho != 1 and pergunta_quantidade_baralho != 6 and pergunta_quantidade_baralho != 8:
         print('Não é possível jogar com essa quantidade de baralhos! Por favor, digite 1, 6 ou 8!')
         pergunta_quantidade_baralho = int(input('Com quantos baralhos você deseja jogar?[1, 6 ou 8?]: '))
-
+'''
